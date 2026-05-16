@@ -171,7 +171,7 @@ const golDarahColor: Record<string, string> = {
           <!-- Mobile cards (large, easy to read) -->
           <div class="sm:hidden divide-y">
             <div v-for="(m, idx) in family.members" :key="m.id" class="p-4">
-              <div class="flex items-start justify-between mb-2">
+              <div class="flex items-start justify-between mb-3">
                 <div class="flex items-center gap-2">
                   <span class="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold shrink-0">{{ idx + 1 }}</span>
                   <span class="font-bold text-base text-foreground">{{ m.nama_lengkap }}</span>
@@ -180,16 +180,24 @@ const golDarahColor: Record<string, string> = {
                   {{ m.hub_kel }}
                 </span>
               </div>
-              <div class="ml-9 space-y-1">
-                <p v-if="m.tempat_lahir || m.tanggal_lahir" class="text-sm text-muted-foreground flex items-center gap-1.5">
-                  <Calendar class="h-3.5 w-3.5 shrink-0" />
-                  {{ [m.tempat_lahir, m.tanggal_lahir].filter(Boolean).join(', ') }}
-                </p>
-                <div class="flex items-center gap-3 text-sm text-muted-foreground">
-                  <span v-if="m.no_hp">📱 {{ m.no_hp }}</span>
-                  <span v-if="m.gol_darah && m.gol_darah !== '-'" :class="['font-bold', golDarahColor[m.gol_darah]]">
-                    Gol. {{ m.gol_darah }}
-                  </span>
+              <div class="ml-9 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
+                <div>
+                  <p class="text-xs text-muted-foreground/60 font-semibold uppercase tracking-wide mb-0.5">Tempat Lahir</p>
+                  <p class="text-foreground">{{ m.tempat_lahir || '—' }}</p>
+                </div>
+                <div>
+                  <p class="text-xs text-muted-foreground/60 font-semibold uppercase tracking-wide mb-0.5">Tanggal Lahir</p>
+                  <p class="text-foreground">{{ m.tanggal_lahir || '—' }}</p>
+                </div>
+                <div>
+                  <p class="text-xs text-muted-foreground/60 font-semibold uppercase tracking-wide mb-0.5">No HP</p>
+                  <p class="text-foreground">{{ m.no_hp || '—' }}</p>
+                </div>
+                <div>
+                  <p class="text-xs text-muted-foreground/60 font-semibold uppercase tracking-wide mb-0.5">Gol. Darah</p>
+                  <p :class="m.gol_darah && m.gol_darah !== '-' ? ['font-bold', golDarahColor[m.gol_darah]] : 'text-foreground'">
+                    {{ m.gol_darah && m.gol_darah !== '-' ? m.gol_darah : '—' }}
+                  </p>
                 </div>
               </div>
             </div>
