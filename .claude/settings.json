@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm dlx *)",
+      "Bash(cd /Users/dhevanthareza/Development/open-tanggan && mkdir -p assets/css server/api server/utils server/routes/auth plugins pages components/ui queries lib types schemas public/icons && mkdir -p 'pages/family/[id]' 'pages/family/new')",
+      "Bash(pnpm install *)",
+      "Bash(pnpm view *)",
+      "Bash(pnpm add *)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(k,v\\) for k,v in {**d.get\\('dependencies',{}\\), **d.get\\('devDependencies',{}\\)}.items\\(\\) if any\\(x in k for x in ['shadcn','radix','lucide','class-variance','clsx','tailwind-merge']\\)]\")",
+      "Bash(pnpm typecheck *)",
+      "Bash(pnpm dev *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(pkill -f \"nuxt dev\")",
+      "Bash(kill 58513)"
+    ],
+    "additionalDirectories": [
+      "/private/tmp/nuxt-init-temp/pages/family"
+    ]
+  }
+}
